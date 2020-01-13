@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/site.css' %}" type="text/css">
+    <link rel="shortcut icon" href="#" />
+    <script> src="{% static 'js/main.js' %}"</script>
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker|Playfair+Display|Roboto&display=swap" rel="stylesheet"> 
+</head>
+<body>
+    <ul>
+        <li class=navbarLink><a href="">Home</a></li>
+        {% load static %}
+        {% if user.is_authenticated %}
+            <li class=navbarLink><a href="{% url 'logout' %}">logout</a></li>
+        {% else %}
+            <li class=navbarLink><a href="{% url 'login' %}">login</a></li>
+            <li class=navbarLink><a href="{% url 'signup' %}">sign up</a></li>
+        {% endif %}
+    </ul>
+
+    {% block content %}
+    {% endblock %}
+   
+
+
+</body>
+</html>

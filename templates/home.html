@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<!-- displays greeting to new or returning user -->
+<div class="section">
+  {% load static %}
+  {% if user.is_authenticated %}
+    <h1 class="welcomeTitles">Yards Biodiversity</h1> 
+    <h2 class="welcomeTitles">welcome {{ user.username }}</h2>
+    <!-- <button id="button1"><a href="">go to my profile</a></button> -->
+  {% else %}
+    <h1>Yards Biodiversity</h1>
+  {% endif %}
+</div>
+
+<!-- mission, about, contact -->
+<div class="flex-container">
+  <div></div>
+
+  <div>
+    <h1>mission</h1>
+    <p>Our mission is to provide our users with the tools to better evaluate the plants around them.</p>
+  </div>
+
+  <div>
+    <h1>about</h1>
+    <p>Yards Biodiversity was designed by a plant nerd.</p>
+  </div>
+
+  <div>
+    <h1>contact</h1>
+    <li>Github</li>
+    <li>instagram</li>
+  </div>
+
+  <div></div>
+</div>
+
+
+<!-- looping full screen background video -->
+<div class="video-container">
+  <video id="videoBG" poster="{% static 'media/backgroundStill.png' %}" autoplay muted loop>
+    <source src="{% static 'media/background.mp4' %}" type="video/mp4">
+  </video>
+</div>
+
+
+{% endblock %}
+
+{% static 'css/site.css' %}
