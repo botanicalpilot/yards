@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles', 
     'yardsApp',
     'users.apps.UsersConfig',
+
+   
 ]
 
 MIDDLEWARE = [

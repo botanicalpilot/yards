@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h1>Welcome {{ user.username }}</h1>
+<h2>Your location is {{user.location}}</h2>
+{% endblock %}

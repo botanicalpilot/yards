@@ -1,17 +1,14 @@
-// When the user scrolls the page, execute myFunction
-window.onscroll = function() {myFunction()};
+// add autocomplete for axios
+const axios = require('axios').default;
 
-// Get the navbar
-var navbar = document.getElementById("navbar").style.width = "100%";
+// add base url for searching API
+yardsAPI = '127.0.0.1:5000/APIApp/?';
 
-// Get the offset position of the navbar
-var sticky = navbar.offsetTop;
 
-// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
-function myFunction() {
-  if (window.pageYOffset >= sticky) {
-    navbar.classList.add("sticky")
-  } else {
-    navbar.classList.remove("sticky");
-  }
+
+function searchAPI() {
+  axios
+    .get()
+    .then(res => showOutput(res))
+    .catch(err => console.error(err));
 }

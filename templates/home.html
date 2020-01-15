@@ -9,7 +9,7 @@
   {% if user.is_authenticated %}
     <h1 class="welcomeTitles">Yards Biodiversity</h1> 
     <h2 class="welcomeTitles">welcome {{ user.username }}</h2>
-    <!-- <button id="button1"><a href="">go to my profile</a></button> -->
+    <button id="button1"><a href="{% url 'profile' %}">go to my profile</a></button>
   {% else %}
     <h1>Yards Biodiversity</h1>
   {% endif %}
@@ -42,7 +42,7 @@
 <!-- looping full screen background video -->
 <div class="video-container">
   <video id="videoBG" poster="{% static 'media/backgroundStill.png' %}" autoplay muted loop>
-    <source src="{% static 'media/background.mp4' %}" type="video/mp4">
+    <source src="{% static 'media/video1.mp4' %}" type="video/mp4">
   </video>
 </div>
 
