@@ -1,8 +1,28 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %}Home{% endblock %}
 
 {% block content %}
 <h1>Welcome {{ user.username }}</h1>
-<h2>Your location is {{user.location}}</h2>
+
+<!-- form for making a search on the API -->
+<h2>search our database for plants in your area</h2>
+<form class="userPlantSearch" id="userPlantSearch">
+    <select class="APISearchOptions" id="APISearchOptions">
+        <option value="scientificNameAuthor__icontains=">Scientific Name</option>
+        <option value="nationalCommonName__icontains=">Common Name</option>
+        <option value="family__icontains=">Plant Family</option>
+    </select>
+    <input type="text" placeholder="Search..." class="APISearch" id="APISearch">
+    <button type="button" class="plantSearchButton" id="plantSearchButton">Search</button>
+</form>
+
+<!-- must include an area to receive the data from the API -->
+<div>
+    <span class="scientificName" id="scientificName">scientificName</span>
+    <span class="nationalCommonName" id="nationalCommonName">CoomonName</span>
+    <span class="family" id="family">family</span>
+</div>
+
+
 {% endblock %}
