@@ -4,33 +4,34 @@
 
 {% block content %}
 <!-- displays greeting to new or returning user -->
-<div class="section">
+<div class="section" id="homePageTitle">
   {% load static %}
   {% if user.is_authenticated %}
     <h1 class="welcomeTitles">Yards Biodiversity</h1> 
     <h2 class="welcomeTitles">welcome {{ user.username }}</h2>
-    <button id="button1"><a href="{% url 'profile' %}">go to my profile</a></button>
+    <button id="buttonToProfile"><a href="{% url 'profile' %}">go to my profile</a></button>
   {% else %}
     <h1 class="welcomeTitles">Yards Biodiversity</h1>
   {% endif %}
 </div>
 
 <!-- mission, about, contact -->
-<div class="container homePageAbout">
-  <div id="homePageItem"></div>
-  <div id="homePageItem">Mission
+<div class="container homePageAbout" id="homePageAbout">
+  <div id="homePageItem">
+      <h1>Mission</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla animi harum alias libero nostrum qui, quaerat blanditiis dolores porro asperiores. Iure aspernatur vel consequuntur enim, eum nesciunt! Doloremque, tenetur quod?</p>
   </div>
 
-  <div id="homePageItem">About
+  <div id="homePageItem">
+      <h1>About</h1>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora fuga asperiores voluptas inventore autem. Suscipit aliquam voluptatem molestias eius? Inventore corrupti iure rerum nesciunt iusto vero quo nisi! Iusto, obcaecati.</p>
   </div>
 
-  <div>Contact
+  <div id="homePageItem">
+      <h1>Contact</h1>
       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat soluta, officiis laborum reprehenderit voluptatibus quos dicta minus? Sit laudantium nihil nobis autem voluptatum, asperiores odit ut temporibus debitis vel deleniti.</p>
   </div>
 
-  <div></div>
 </div>
 
 

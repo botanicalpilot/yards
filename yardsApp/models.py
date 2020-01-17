@@ -2,10 +2,10 @@ from django.db import models
 
 # Create your models here.
 # class userPlantList(models.Model):
-#     user = models.OneToOneField(
+#     # create many to one relationship
+#     user = models.ForeignKey(
 #         users.CustomUser,
 #         on_delete=models.CASCADE, 
-#         primary_key=True
 #     )
 #     # items from API
 #     symbol = models.CharField(max_length=15, blank=True, default='')
