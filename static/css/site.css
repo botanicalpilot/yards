@@ -36,13 +36,15 @@ li a:hover {
 
 .section .welcomeTitles {
     line-height: 2px;
+    color: black;
 }
 
 .section h1{
     text-align: center;
     font-size: 6rem;
-    color: white;
+    color: black;
     font-family: 'Permanent Marker', cursive;
+    
 }
 
 .section h2{
@@ -73,20 +75,19 @@ li a:hover {
 }
 
 
-/* Three columns giving general information about the app */
-.flex-container {
+/* flex container home page giving general information about the app */
+.container .homePageAbout {
     display: flex;
-    flex-basis: 0;
-    flex: 1 1 0px;
-    flex-direction: row;
     flex-wrap: wrap;
-    color: white;
-    font-family: 'Playfair Display', serif;
-    justify-content:  space-between;
-    text-align: center
-
+    flex-direction: row;
+    justify-content: center;
+    margin: 70px;
 }
 
+#homePageItem {
+    flex: 1 0 25%;
+    color: white; 
+}
 
 
 
@@ -124,4 +125,5 @@ li a:hover {
         background: url('../media/backgroundStill.png');
         background-size: cover;
     }
+   
 }

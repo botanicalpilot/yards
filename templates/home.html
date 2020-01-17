@@ -11,28 +11,23 @@
     <h2 class="welcomeTitles">welcome {{ user.username }}</h2>
     <button id="button1"><a href="{% url 'profile' %}">go to my profile</a></button>
   {% else %}
-    <h1>Yards Biodiversity</h1>
+    <h1 class="welcomeTitles">Yards Biodiversity</h1>
   {% endif %}
 </div>
 
 <!-- mission, about, contact -->
-<div class="flex-container">
-  <div></div>
-
-  <div>
-    <h1>mission</h1>
-    <p>Our mission is to provide our users with the tools to better evaluate the plants around them.</p>
+<div class="container homePageAbout">
+  <div id="homePageItem"></div>
+  <div id="homePageItem">Mission
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla animi harum alias libero nostrum qui, quaerat blanditiis dolores porro asperiores. Iure aspernatur vel consequuntur enim, eum nesciunt! Doloremque, tenetur quod?</p>
   </div>
 
-  <div>
-    <h1>about</h1>
-    <p>Yards Biodiversity was designed by a plant nerd.</p>
+  <div id="homePageItem">About
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora fuga asperiores voluptas inventore autem. Suscipit aliquam voluptatem molestias eius? Inventore corrupti iure rerum nesciunt iusto vero quo nisi! Iusto, obcaecati.</p>
   </div>
 
-  <div>
-    <h1>contact</h1>
-    <li>Github</li>
-    <li>instagram</li>
+  <div>Contact
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat soluta, officiis laborum reprehenderit voluptatibus quos dicta minus? Sit laudantium nihil nobis autem voluptatum, asperiores odit ut temporibus debitis vel deleniti.</p>
   </div>
 
   <div></div>
