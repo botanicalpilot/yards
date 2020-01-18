@@ -2,7 +2,7 @@
 
 
 // add base url for searching API
-let yardsAPI = "http://127.0.0.1:5000/APIApp/?";
+let yardsAPI = "http://127.0.0.1:5000/APIApp/?format=json&";
 let APISearchInput = document.getElementById("APISearch");
 let searchParamInput = document.getElementById("APISearchOptions");
 
@@ -31,22 +31,27 @@ searchButton.addEventListener("click", searchAPI);
 // function returnAPIItems() {
 //   // length is the number of times for loop will repeat
 //   let length = 10
-//   let container = document.creat
+//   let wrapper = document.getElementById("APIWrapper")
 
 //   for (i=0; i<length; i++) {
-//     // create an item to hold json data
-
-
 //     // add data to created item
 //     axios.get(yardsAPI + searchParamInput.value + APISearchInput.value)
 //     .then(function(response){
+
+//       scientificNameSpan = document.createElement('span')
+//       nationalCommonNameSpan = document.createElement('span')
+//       familySpan = document.createElement('span')  
+
 //       searchData = response.data;
-//       scientificName.innerHTML = searchData[i].scientificNameAuthor;
-//       nationalCommonName.innerHTML = searchData[i].nationalCommonName;
-//       family.innerHTML = searchData[i].family;
+//       scientificNameSpan.innerHTML = searchData[i].scientificNameAuthor;
+//       nationalCommonNameSpan.innerHTML = searchData[i].nationalCommonName;
+//       familySpan.innerHTML = searchData[i].family;
+      
+//       wrapper.appendChild(scientificNameSpan);
 //     })
 //     .catch(function (error) {
 //       scientificName.innerHTML = "(An error has occurred.)"
 //     });
 //   }
 // }
+

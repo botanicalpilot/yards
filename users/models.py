@@ -7,6 +7,8 @@ class CustomUser(AbstractUser):
     location = models.CharField(max_length=50, blank=True)
     # I want to have a plantlist field below, but am unsure how to accomplish this. 
     # plantList = 
+    
+
 
     def __str__(self):
         return self.username

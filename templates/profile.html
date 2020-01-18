@@ -1,8 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
+
+
 {% block title %}Home{% endblock %}
 
 {% block content %}
+<!-- make sure users are logged in to see site -->
+{% if user.is_authenticated %}
 <h1>Welcome {{ user.username }}</h1>
 
 <!-- form for making a search on the API -->
@@ -18,11 +22,15 @@
 </form>
 
 <!-- must include an area to receive the data from the API -->
-<div>
-    <span class="scientificName" id="scientificName">scientificName</span>
-    <span class="nationalCommonName" id="nationalCommonName">CoomonName</span>
-    <span class="family" id="family">family</span>
+<div id="APIWrapper">
+    <span class="scientificName" id="scientificName">Scientific Name</span>
+    <span class="nationalCommonName" id="nationalCommonName">Common Name</span>
+    <span class="family" id="family">Family</span>
 </div>
 
-
+<!-- If user is not logged in they cannot access information -->
+{% else %}
+    <div>Please Log In</div>
+    
+{% endif %}
 {% endblock %}
