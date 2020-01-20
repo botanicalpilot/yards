@@ -10,7 +10,9 @@
 <h1>Welcome {{ user.username }}</h1>
 
 <!-- form for making a search on the API -->
-<h2>search our database for plants in your area</h2>
+
+<!-- old search content -->
+<!-- <h2>search our database for plants in your area</h2>
 <form class="userPlantSearch" id="userPlantSearch">
     <select class="APISearchOptions" id="APISearchOptions">
         <option value="scientificNameAuthor__icontains=">Scientific Name</option>
@@ -21,12 +23,35 @@
     <button type="button" class="plantSearchButton" id="plantSearchButton">Search</button>
 </form>
 
-<!-- must include an area to receive the data from the API -->
+
 <div id="APIWrapper">
     <span class="scientificName" id="scientificName">Scientific Name</span>
     <span class="nationalCommonName" id="nationalCommonName">Common Name</span>
     <span class="family" id="family">Family</span>
+</div> -->
+<!-- old search content -->
+
+
+<!-- new content with vue -->
+<div id="searchAPI">
+    <div class="input-container">
+        <input type="text" placeholder="Search for a plant..." v-model="searchInput">
+    </div>
+
+    <ul>
+        <li class="APIObject" v-for="searchResult in searchResults" v-text="searchResult.scientificNameAuthor">
+            <!-- <span class="">{{APIObject.scientificNameAuthor}}</span> -->
+        </li>
+    </ul>
 </div>
+
+<!-- import vie, axios, js -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- axios may already be installed on the project, adding just incase it needs to be added to HTML specifically -->
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="{% static 'js/profile.js' %}"></script>
+
+
 
 <!-- If user is not logged in they cannot access information -->
 {% else %}

@@ -24,8 +24,8 @@ function searchAPI() {
     });
 }
 
-let searchButton = document.getElementById("plantSearchButton");
-searchButton.addEventListener("click", searchAPI);
+// let searchButton = document.getElementById("plantSearchButton");
+// searchButton.addEventListener("click", searchAPI);
 
 // // get multiple items from rest
 // function returnAPIItems() {
