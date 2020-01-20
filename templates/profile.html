@@ -39,7 +39,7 @@
     </div>
 
     <ul>
-        <li class="APIObject" v-for="searchResult in searchResults" v-text="searchResult.scientificNameAuthor">
+        <li class="APIObject" v-for="searchResult in filteredResults" v-text="searchResult.scientificNameAuthor">
             <!-- <span class="">{{APIObject.scientificNameAuthor}}</span> -->
         </li>
     </ul>
