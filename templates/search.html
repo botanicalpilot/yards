@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+<style src=".css/site.css"></style>
+{% block content %}
+<h1>Search our database</h1>
+
+<!-- import vie, axios, js -->
+
+
+<div id="searchAPI">
+        <div class="input-container">
+            <input type="text" placeholder="Search for a plant..." v-model="searchInput">
+        <select>
+            <option value="scientificNameAuthor">Scientific Name & Author</option>
+            <option value="nationalCommonName"> National Common Name</option>
+            <option value="family">Plant Family</option>
+        </select>
+        </div>
+    
+        <ul id="returnedAPIObjects">
+            <template class="APIObject" v-for="searchResult in filteredResults">
+                <tr>
+                    <td v-text="searchResult.scientificNameAuthor"></td>
+                    <td v-text="searchResult.nationalCommonName"></td>
+                    <td v-text="searchResult.family"></td>
+                </tr>
+                 
+                
+            </template>
+        </ul>
+    </div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- axios may already be installed on the project, adding just incase it needs to be added to HTML specifically -->
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="{% static 'js/search.js' %}"></script>
+{% endblock %}

@@ -117,7 +117,29 @@ li a:hover {
     z-index: -1;
 }
 
+/* profile header */
+.header h1{
+    padding: 60px;
+    text-align: center;
+    font-family: 'Permanent Marker', cursive;
+    color: black;
+}
 
+.header {
+    background-color: white;
+    background-image: url('~./media/profileBackground.jpg');
+    background-size: 50% 100%;
+    background-repeat: no-repeat;
+}
+
+/* search return styling on profile */
+#searchAPI{
+
+}
+
+#returnedAPIObjects{
+    list-style: circle;
+}
 
 
 @media (min-aspect-ratio: 16/9){

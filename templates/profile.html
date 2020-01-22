@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
+<style src=".css/site.css"></style>
+
 
 
 {% block title %}Home{% endblock %}
@@ -7,29 +9,17 @@
 {% block content %}
 <!-- make sure users are logged in to see site -->
 {% if user.is_authenticated %}
-<h1>Welcome {{ user.username }}</h1>
-
-<!-- form for making a search on the API -->
-
-<!-- old search content -->
-<!-- <h2>search our database for plants in your area</h2>
-<form class="userPlantSearch" id="userPlantSearch">
-    <select class="APISearchOptions" id="APISearchOptions">
-        <option value="scientificNameAuthor__icontains=">Scientific Name</option>
-        <option value="nationalCommonName__icontains=">Common Name</option>
-        <option value="family__icontains=">Plant Family</option>
-    </select>
-    <input type="text" placeholder="Search..." class="APISearch" id="APISearch">
-    <button type="button" class="plantSearchButton" id="plantSearchButton">Search</button>
-</form>
 
 
-<div id="APIWrapper">
-    <span class="scientificName" id="scientificName">Scientific Name</span>
-    <span class="nationalCommonName" id="nationalCommonName">Common Name</span>
-    <span class="family" id="family">Family</span>
-</div> -->
-<!-- old search content -->
+
+
+<div class=header id="profileHeader">
+    <h1>Yards BioDiversity</h1>
+    <div class="profileImageContainer">
+    </div>
+</div>
+
+<h2 id="userWelcome">Welcome {{ user.username }}</h2>
 
 
 <!-- new content with vue -->
@@ -38,12 +28,23 @@
         <input type="text" placeholder="Search for a plant..." v-model="searchInput">
     </div>
 
-    <ul>
-        <li class="APIObject" v-for="searchResult in filteredResults" v-text="searchResult.scientificNameAuthor">
-            <!-- <span class="">{{APIObject.scientificNameAuthor}}</span> -->
-        </li>
+    <ul id="returnedAPIObjects">
+        <template class="APIObject" v-for="searchResult in filteredResults" v-bind:key="searchResult.id">
+            <span v-text="searchResult.scientificNameAuthor">   
+            </span>
+        </template>
+
+        <!-- <div class="APIObject" v-for="searchResult in filteredResults"> 
+                <li v-text="searchResult.scientificNameAuthor">
+                <button>Add</button>
+                </li>
+        </div> -->
     </ul>
 </div>
+
+
+
+
 
 <!-- import vie, axios, js -->
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>

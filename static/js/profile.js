@@ -30,7 +30,7 @@ const appSearch = new Vue({
     computed:{
         filteredResults: function(){
             return this.searchResults.filter((searchResult) => {
-                return searchResult.scientificNameAuthor.match(this.searchInput)
+                return searchResult.scientificNameAuthor.toLowerCase().match(this.searchInput)
             });
         }
     }
