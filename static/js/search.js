@@ -1,3 +1,15 @@
+// add base url for searching API
+// Same thing but in a purely functional syntax
+// user as helper function for the query parameters
+
+const buildQueryParamsPure = (params) => (
+    Object
+      .keys(params)
+      .reduce((q, k) => q + `${k}=${params[k]}&`, '?')
+      .slice(0, -1)
+  );
+
+// make vue
 const appSearch = new Vue({
     el: '#searchAPI',
     data: {

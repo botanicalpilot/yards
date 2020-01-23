@@ -29,16 +29,13 @@
     </div>
 
     <ul id="returnedAPIObjects">
-        <template class="APIObject" v-for="searchResult in filteredResults" v-bind:key="searchResult.id">
-            <span v-text="searchResult.scientificNameAuthor">   
-            </span>
+        <template class="APIObject" v-for="searchResult in filteredResults">
+            <tr>
+                <td v-text="searchResult.scientificNameAuthor"></td>
+                <td v-text="searchResult.nationalCommonName"></td>
+                <td v-text="searchResult.family"></td>
+            </tr>
         </template>
-
-        <!-- <div class="APIObject" v-for="searchResult in filteredResults"> 
-                <li v-text="searchResult.scientificNameAuthor">
-                <button>Add</button>
-                </li>
-        </div> -->
     </ul>
 </div>
 
