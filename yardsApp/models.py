@@ -18,3 +18,4 @@ class userPlant(models.Model):
     nationalCommonName = models.CharField(max_length=500, blank=True, default='')
     family = models.CharField(max_length=250, blank=True, default='')
     nativeState = models.CharField(blank=False, max_length=100)
+    isInvasive = models.CharField(max_length=20)

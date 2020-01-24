@@ -15,6 +15,7 @@ const appSearch = new Vue({
     data: {
         searchInput: "",
         searchResults: [],
+        // addPlant: {'scientificNameAuthor':null, 'nationalCommonName':null, 'family':null, 'nativeState':null, 'isInvasive':null}
     },
     mounted: function() {
             axios.get('http://127.0.0.1:5000/APIApp/')
@@ -27,6 +28,17 @@ const appSearch = new Vue({
                 console.log(error);
             })
     },
+    // methods:{
+    //     getPlantData : function() {
+    //         this.$http.post('/newUserPlant/', this.searchResult)
+    //             .then((response) {
+
+
+    //             })
+                
+    //     }
+
+    // },
     computed:{
         filteredResults: function(){
             return this.searchResults.filter((searchResult) => {
