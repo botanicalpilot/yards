@@ -35,7 +35,7 @@
                 <td v-text="searchResult.nationalCommonName"></td>
                 <td v-text="searchResult.family"></td>
                 <td>
-                    <input type="checkbox">
+                    <button v-on:click="getPlant(searchResult.symbol)" type="button">Add Plant</button>
                 </td>
             </tr>
         </template>
