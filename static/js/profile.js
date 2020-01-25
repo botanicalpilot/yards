@@ -15,6 +15,8 @@ const appSearch = new Vue({
     data: {
         searchInput: "",
         searchResults: [],
+        
+        
         // need to get data from for loop into addPlant
         // addPlant: {'scientificNameAuthor':null, 'nationalCommonName':null, 'family':null, 'nativeState':null, 'isInvasive':null}
     },
@@ -29,55 +31,41 @@ const appSearch = new Vue({
                 console.log(error);
             })
     },
-    // methods:{
+    methods:{
         // need to get individual item upon clicking the button
         // function calls api with symbol
 
         // attempt with Axios
-        // getPlant : function(symbol) {
-        //     axios.get('http://127.0.0.1:5000/APIApp/?symbol__iexact=' + symbol)
-        //     .then(response => {
-        //         plantInfo = response.data
-        //         postData = {'scientificNameAuthor': plantInfo.scientificNameAuthor, 'nationalCommonName': plantInfo.nationalCommonName, 'family': plantInfo.family, 'nativeState': plantInfo.nativeState, 'isInvasive': plantInfo.isInvasive}
+        
+        getPlant : function(symbol) {
+            let csrftoken = Cookies.get('csrftoken');
+            let headers = {'X-CSRFTOKEN': csrftoken};
+            axios.get('http://127.0.0.1:5000/APIApp/?symbol__iexact=' + symbol)
+            .then(response => {
+                console.log(response.data[0])
+                plantInfo = response.data[0];
 
-        //         // post data collected with axios
-        //         axios.post('newUserPlant', postData)
-        //             .then(response => {
-        //                 console.log(response);
-        //             })
-        //             .catch(error => {
-        //                 console.log(error);
-        //             })
-        //         })
-        //     .catch(error => {
-        //         console.log(error);
-        //     })
-        // }
+                 let postData = {'scientificNameAuthor': plantInfo.scientificNameAuthor, 'nationalCommonName': plantInfo.nationalCommonName, 'family': plantInfo.family, 'nativeState': plantInfo.nativeState, 'isInvasive': plantInfo.isInvasive};
+                console.log("yay")
+                console.log(postData);
+
+                // post data collected with axios
+                axios.post('http://127.0.0.1:8000/newUserPlant', postData,{headers: headers})
+                    .then(response => {
+                        console.log(response);
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    })
+                })
+            .catch(error => {
+                console.log(error);
+            })
+        }
+    },
 
 
-
-        // old attempt:
-        // getPlant : function(symbol) {
-        //     this.$http.get("http://127.0.0.1:5000/APIApp/?symbol__iexact=${symbol}")
-        //         .then(response => {
-        //             this.plant = response.data;
-        //             console.log(response);
-        //         })
-        //         .catch((err) => {
-        //             console.log(err);
-        //         })
-        // },
-
-        // newPlant : function() {
-        //     this.$http.post(url, this.addPlant)
-        //         .then((response) => {
-        //             this.getPlant();
-        //         })
-        //         .catch ((err) => {
-        //             console.log(err);
-        //         })
-        // }
-    // }
+    
     computed:{
         filteredResults: function(){
             return this.searchResults.filter((searchResult) => {

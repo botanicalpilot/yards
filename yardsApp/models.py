@@ -12,10 +12,10 @@ class userPlant(models.Model):
         on_delete=models.CASCADE, 
     )
     # items from API
-    symbol = models.CharField(max_length=15, blank=True, default='')
-    synonymSymbol = models.CharField(max_length=15, blank=True, default='')
-    scientificNameAuthor = models.CharField(max_length=500, blank=True, default='' )
-    nationalCommonName = models.CharField(max_length=500, blank=True, default='')
-    family = models.CharField(max_length=250, blank=True, default='')
-    nativeState = models.CharField(blank=False, max_length=100)
-    isInvasive = models.CharField(max_length=20)
+    symbol = models.CharField(max_length=15, blank=True, default='', null=True)
+    synonymSymbol = models.CharField(max_length=15, blank=True, default='', null=True)
+    scientificNameAuthor = models.CharField(max_length=500, blank=True, default='', null=True )
+    nationalCommonName = models.CharField(max_length=500, blank=True, default='', null=True)
+    family = models.CharField(max_length=250, blank=True, default='', null=True)
+    nativeState = models.CharField(blank=True, max_length=100, null=True)
+    isInvasive = models.CharField(max_length=20, blank=True, null=True)
