@@ -42,7 +42,6 @@ const appSearch = new Vue({
             let headers = {'X-CSRFTOKEN': csrftoken};
             axios.get('http://127.0.0.1:5000/APIApp/?symbol__iexact=' + symbol)
             .then(response => {
-                console.log(response.data[0])
                 plantInfo = response.data[0];
                 const postData = new FormData()
                 postData.append('scientificNameAuthor', plantInfo.scientificNameAuthor)
@@ -51,21 +50,8 @@ const appSearch = new Vue({
                 postData.append('nativeState', plantInfo.nativeState)
                 postData.append('isInvasive', plantInfo.isInvasive)
 
-                //  let postData = {'scientificNameAuthor': plantInfo.scientificNameAuthor, 'nationalCommonName': plantInfo.nationalCommonName, 'family': plantInfo.family, 'nativeState': plantInfo.nativeState, 'isInvasive': plantInfo.isInvasive};
-                console.log("yay")
                 console.log(postData);
 
-                // post data collected with axios
-                // axios({
-                //     method: 'post',
-                //     url: 'http://127.0.0.1:8000/newUserPlant',
-                //     data: {
-                //         scientificNameAuthor: plantInfo.scientificNameAuthor, nationalCommonName: plantInfo.nationalCommonName, family: plantInfo.family, nativeState: plantInfo.nativeState, isInvasive: plantInfo.isInvasive
-
-                //     },
-                //     headers: {'X-CSRFTOKEN': csrftoken},
-                    
-                // })
                 axios.post('http://127.0.0.1:8000/newUserPlant', postData,{headers: headers})
                     .then(response => {
                         console.log(response);
