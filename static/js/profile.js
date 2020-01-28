@@ -21,7 +21,8 @@ const appSearch = new Vue({
         // addPlant: {'scientificNameAuthor':null, 'nationalCommonName':null, 'family':null, 'nativeState':null, 'isInvasive':null}
     },
     mounted: function() {
-            axios.get('http://127.0.0.1:5000/APIApp/')
+            let state = document.getElementById('plantStateSearch').innerHTML;
+            axios.get('http://127.0.0.1:5000/APIApp/?nativeState__iexact=' + state)
             .then(response => {
             this.searchResults = response.data;
             console.log(response);
