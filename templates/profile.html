@@ -20,27 +20,39 @@
 </div>
 
 <h2 id="userWelcome">Welcome {{ user.username }}</h2>
-<h2 id="plantStateSearch">{{ user.location }}</h2>
+<div class="UserPlantListDisplay">
+    <h3>Your Plant List</h3>
+    <ul>
+        {% for plant in userPlants %}
+        
+            <li>{{ plant.scientificNameAuthor }}</li>
+        
+        {% endfor %}
+    </ul>
+</div>
 
 
 <!-- new content with vue -->
-<div id="searchAPI">
-    <div class="input-container">
-        <input type="text" placeholder="Search for a plant..." v-model="searchInput">
-    </div>
+<div class="APIDynamicSearch">
+    <h2 id="plantStateSearch">{{ user.location }}</h2>
+    <div id="searchAPI">
+        <div class="input-container">
+            <input type="text" placeholder="Search for a plant..." v-model="searchInput">
+        </div>
 
-    <ul id="returnedAPIObjects">
-        <template class="APIObject" v-for="searchResult in filteredResults">
-            <tr>
-                <td v-text="searchResult.scientificNameAuthor"></td>
-                <td v-text="searchResult.nationalCommonName"></td>
-                <td v-text="searchResult.family"></td>
-                <td>
-                    <button v-on:click="getPlant(searchResult.symbol)" type="button">Add Plant</button>
-                </td>
-            </tr>
-        </template>
-    </ul>
+        <ul id="returnedAPIObjects">
+            <template class="APIObject" v-for="searchResult in filteredResults">
+                <tr>
+                    <td v-text="searchResult.scientificNameAuthor"></td>
+                    <td v-text="searchResult.nationalCommonName"></td>
+                    <td v-text="searchResult.family"></td>
+                    <td>
+                        <button v-on:click="getPlant(searchResult.symbol)" type="button">Add Plant</button>
+                    </td>
+                </tr>
+            </template>
+        </ul>
+    </div>
 </div>
 
 
