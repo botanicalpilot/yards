@@ -1,14 +1,29 @@
-
+from django.http import JsonResponse
 from django.shortcuts import render, reverse, redirect, get_object_or_404
 from .models import userPlant
 
 # view for profile that will return a users plant list
 def profile(request):
     userPlants = userPlant.objects.filter(user=request.user).values()
-    print('HIIII')
-    print(userPlants)
     context = {'userPlants': userPlants}
     return render(request, 'profile.html', context)
+
+# view for charting data
+# def chartData(request):
+#     userPlants = userPlant.objects.filter(user=request.user).values()
+
+#     invasiveCount = 0
+#     nonInvasiveCount = 0
+#     for plant in userPlants:
+#         if plant.isInvasive == "TRUE":
+#             invasiveCount += 1
+#         else:
+#             nonInvasiveCount += 1
+#     data = {
+#         'invasive': invasiveCount
+#         'non-invasive': nonInvasiveCount
+#     }
+#     return JsonResponse(data) 
 
 
 # request a plant returned from search function be added to user's userPlant model 
