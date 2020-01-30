@@ -9,21 +9,13 @@ def profile(request):
     return render(request, 'profile.html', context)
 
 # view for charting data
-# def chartData(request):
-#     userPlants = userPlant.objects.filter(user=request.user).values()
+def chartData(request):
+    userPlants = userPlant.objects.filter(user=request.user).values()
 
-#     invasiveCount = 0
-#     nonInvasiveCount = 0
-#     for plant in userPlants:
-#         if plant.isInvasive == "TRUE":
-#             invasiveCount += 1
-#         else:
-#             nonInvasiveCount += 1
-#     data = {
-#         'invasive': invasiveCount
-#         'non-invasive': nonInvasiveCount
-#     }
-#     return JsonResponse(data) 
+    data = {
+        'userPlants':list(userPlants)
+    }
+    return JsonResponse(data) 
 
 
 # request a plant returned from search function be added to user's userPlant model 

@@ -20,6 +20,12 @@
 </div>
 
 <h2 id="userWelcome">Welcome {{ user.username }}</h2>
+
+<div id="plantChartContainer">
+<canvas id="plantChart"></canvas>
+</div>
+
+
 <div class="UserPlantListDisplay">
     <h3>Your Plant List</h3>
     <ul>
@@ -64,7 +70,9 @@
 <!-- axios may already be installed on the project, adding just incase it needs to be added to HTML specifically -->
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="{% static 'js/profile.js' %}"></script>
-<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
+
 
 
 
