@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
-<style src=".css/site.css"></style>
+
 
 
 
 {% block title %}Home{% endblock %}
 
 {% block content %}
+
 
 <!-- make sure users are logged in to see site -->
 {% if user.is_authenticated %}
@@ -24,25 +25,26 @@
 
 
 <div class="UserPlantListDisplay">
-    <h3>Your Plant List</h3>
+    <h3 id="userPlantListTitle">Your Plant List</h3>
     <ul>
         {% for plant in userPlants %}
             
             <p>{{ plant.scientificNameAuthor }} <button onclick="location.href='http://127.0.0.1:8000/{{ plant.id }}/delete'">Delete</button></p>
         
         {% endfor %}
-        <button type="button" id="customPlantBtn">Add Custom Plant</button>
+        
     </ul>
 </div>
 
+<button type="button" id="customPlantBtn">Add Custom Plant</button>
 <!-- customUserPlantForm -->
 <div id="customUserPlantModal" class="modal">
     <div class="modal-content">
-        <span class="close">&times;</span>
+        <span class="close-button">x</span>
         <form action="{% url 'yardsApp:customUserPlant' %}" method="POST"> 
             {% csrf_token %}
 
-            <h1>Add Custom Plant</h1>
+            <h1 id="customPlantTitle" >Add Custom Plant</h1>
             <input type="text" placeholder="Scientific Name" name="scientificNameAuthor">
             <input type="text" placeholder="Common Name" name="nationalCommonName">
             <input type="text" placeholder="Plant Family" name="family">
