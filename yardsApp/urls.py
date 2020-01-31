@@ -9,5 +9,7 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
     path('newUserPlant', views.newUserPlant, name='newUserPlant'),
     path('profile/', views.profile, name='profile'),
-    path('data/', views.chartData, name='chartData')
+    path('data/', views.chartData, name='chartData'),
+    path('<int:userPlantId>/delete', views.deleteUserPlant, name='deleteUserPlant'),
+    path('profile/customUserPlant', views.customUserPlant, name='customUserPlant'),
 ]

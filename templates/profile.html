@@ -7,12 +7,9 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
+
 <!-- make sure users are logged in to see site -->
 {% if user.is_authenticated %}
-
-
-
-
 <div class=header id="profileHeader">
     <h1>Yards BioDiversity</h1>
     <div class="profileImageContainer">
@@ -31,12 +28,29 @@
     <ul>
         {% for plant in userPlants %}
             
-            <p>{{ plant.scientificNameAuthor }}</p>
+            <p>{{ plant.scientificNameAuthor }} <button onclick="location.href='http://127.0.0.1:8000/{{ plant.id }}/delete'">Delete</button></p>
         
         {% endfor %}
+        <button type="button" id="customPlantBtn">Add Custom Plant</button>
     </ul>
 </div>
 
+<!-- customUserPlantForm -->
+<div id="customUserPlantModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <form action="{% url 'yardsApp:customUserPlant' %}" method="POST"> 
+            {% csrf_token %}
+
+            <h1>Add Custom Plant</h1>
+            <input type="text" placeholder="Scientific Name" name="scientificNameAuthor">
+            <input type="text" placeholder="Common Name" name="nationalCommonName">
+            <input type="text" placeholder="Plant Family" name="family">
+            <input type="text" placeholder="Native Region" name="nativeState">
+            <input type="submit" name="submit" value="Submit">
+        </form>
+    </div>
+</div>
 
 <!-- new content with vue -->
 <div class="APIDynamicSearch">
@@ -69,12 +83,9 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <!-- axios may already be installed on the project, adding just incase it needs to be added to HTML specifically -->
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="{% static 'js/profile.js' %}"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
-
-
-
+<script src="{% static 'js/profile.js' %}"></script>
 
 
 <!-- If user is not logged in they cannot access information -->

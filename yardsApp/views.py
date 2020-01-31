@@ -17,6 +17,26 @@ def chartData(request):
     }
     return JsonResponse(data) 
 
+# view for deleting userPlant item
+def deleteUserPlant(request, userPlantId):
+    plantId = get_object_or_404(userPlant, id=userPlantId)
+    plantId.delete()
+    return redirect('http://127.0.0.1:8000/profile')
+
+# view for adding custom userPlant
+def customUserPlant(request):
+    user = request.user
+    scientificNameAuthor = request.POST.get('scientificNameAuthor')
+    print(scientificNameAuthor)
+    nationalCommonName = request.POST.get('nationalCommonName')
+    family = request.POST.get('family') 
+    nativeState = request.POST.get('nativeState')
+    isInvasive = 'FALSE'
+
+    userPlant.objects.create(user=user, scientificNameAuthor=scientificNameAuthor, nationalCommonName=nationalCommonName, family=family, nativeState=nativeState, isInvasive=isInvasive)
+
+    return redirect('http://127.0.0.1:8000/profile')
+
 
 # request a plant returned from search function be added to user's userPlant model 
 def newUserPlant(request):
