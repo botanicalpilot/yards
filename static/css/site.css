@@ -115,7 +115,22 @@ li a:hover {
     position: fixed;
     z-index: -1;
 }
+/* end of home page */
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* beginning of profile page */
 /* profile header */
 .header h1{
     padding: 60px;
@@ -134,6 +149,29 @@ li a:hover {
 #userWelcome {
     font-family: 'Permanent Marker', cursive;
 }
+
+/* flex container for graph and userPlant list */
+.graphListContainer{
+    display: flex;
+    flex-direction: row;
+    height: 60vh;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.plantChartContainer{
+    flex: 1;
+}
+
+.userPlantListDisplay{
+    flex: 1;
+    overflow-y: auto;
+    min-height: 0px;
+}
+
+
+
+
 
 .modal {
     position: fixed;
@@ -189,6 +227,17 @@ li a:hover {
 
 
 
+
+
+
+
+
+
+
+
+
+
+/* responsiveness for video on home page */
 @media (min-aspect-ratio: 16/9){
     #videoBG {
         width: 100%;

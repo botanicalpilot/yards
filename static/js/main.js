@@ -24,6 +24,7 @@ axios.get(endpoint)
     console.log(noninvasive)
     var ctx = document.getElementById('plantChart').getContext('2d');
     var invasiveChart = new Chart(ctx, {
+    responsive: true,
     type:'pie',
     data: {
       labels: ['Native Plants', 'Invasive Plants'],
@@ -32,7 +33,7 @@ axios.get(endpoint)
         data: [noninvasive, invasive],
         backgroundColor:['RGB(2, 115, 104)','RGB(242, 81, 22)']
        }]
-     }
+     },
     })
     
   })
