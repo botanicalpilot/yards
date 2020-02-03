@@ -14,11 +14,14 @@ axios.get(endpoint)
     var i;
     let invasive = 0;
     let noninvasive = 0;
+    let nonnative = 0;
     for( i=0; i< plantListData.userPlants.length; i++) {
       if (plantListData.userPlants[i]['isInvasive'] == "TRUE") {
         invasive += 1
-      } else {
+      } else if (plantListData.userPlants[i]['isInvasive'] == "FALSE") {
         noninvasive += 1
+      } else {
+        nonnative += 1
       }
     }
     console.log(noninvasive)
@@ -27,11 +30,11 @@ axios.get(endpoint)
     responsive: true,
     type:'pie',
     data: {
-      labels: ['Native Plants', 'Invasive Plants'],
+      labels: ['Native Plants', 'Invasive Plants', 'Nonnative'],
       datasets: [{
         label: 'native v. invasive',
-        data: [noninvasive, invasive],
-        backgroundColor:['RGB(2, 115, 104)','RGB(242, 81, 22)']
+        data: [noninvasive, invasive, nonnative],
+        backgroundColor:['RGB(2, 115, 104)','RGB(242, 81, 22)', 'RGB(4, 138, 191)',]
        }]
      },
     })

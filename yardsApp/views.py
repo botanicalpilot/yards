@@ -31,7 +31,7 @@ def customUserPlant(request):
     nationalCommonName = request.POST.get('nationalCommonName')
     family = request.POST.get('family') 
     nativeState = request.POST.get('nativeState')
-    isInvasive = 'FALSE'
+    isInvasive = 'UNKNOWN'
 
     userPlant.objects.create(user=user, scientificNameAuthor=scientificNameAuthor, nationalCommonName=nationalCommonName, family=family, nativeState=nativeState, isInvasive=isInvasive)
 
