@@ -28,6 +28,7 @@ axios.get(endpoint)
     var ctx = document.getElementById('plantChart').getContext('2d');
     var invasiveChart = new Chart(ctx, {
     responsive: true,
+    maintainAspectRatio: false,
     type:'pie',
     data: {
       labels: ['Native Plants', 'Invasive Plants', 'Nonnative'],

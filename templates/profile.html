@@ -81,6 +81,13 @@
             </div>
 
             <ul id="returnedAPIObjects">
+                <table>
+                    <tr>
+                            <th scope="col">Scientific Name & Author</th>
+                            <th scope="col">Common Name</th>
+                            <th scope="col">Plant Family</th>
+                            <th scope="col">Add to your plant list</th>
+                    </tr>
                 <template class="APIObject" v-for="searchResult in filteredResults">
                     <tr>
                         <td v-text="searchResult.scientificNameAuthor"></td>
@@ -91,6 +98,7 @@
                         </td>
                     </tr>
                 </template>
+            </table>
             </ul>
         </div>
     </div>

@@ -254,6 +254,11 @@ li a:hover {
   } 
 
 
+/* table styling */
+th {
+    text-align: left;
+}
+
 
 
 
