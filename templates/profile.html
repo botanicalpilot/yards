@@ -29,14 +29,20 @@
      <!-- userPlant list -->
     <div class="userPlantListDisplay">
         <h3 id="userPlantListTitle">Your Plant List</h3>
+        <button type="button" id="customPlantBtn">Add Custom Plant</button>
         <ul>
             {% for plant in userPlants %}   
-                <p>{{ plant.scientificNameAuthor }} <button onclick="location.href='http://127.0.0.1:8000/{{ plant.id }}/delete'">Delete</button></p>
+                <button class="accordion">{{ plant.scientificNameAuthor }}</button> 
+                <div class="panel">
+                    <p>Common Name: {{plant.nationalCommonName}}</p>
+                    <p>Native State: {{plant.nativeState}}</p>
+                    <p>Invasive Status: {{plant.isInvasive}}</p>
+
+                    <button onclick="location.href='http://127.0.0.1:8000/{{ plant.id }}/delete'">Delete</button>
+                </div><br>
             {% endfor %}
         </ul>
     
-
-    <button type="button" id="customPlantBtn">Add Custom Plant</button>
     <!-- customUserPlantForm -->
     <div id="customUserPlantModal" class="modal">
         <div class="modal-content">
@@ -66,25 +72,27 @@
 
 
 <!-- new content with vue -->
-<div class="APIDynamicSearch">
-    <h2 id="plantStateSearch">{{ user.location }}</h2>
-    <div id="searchAPI">
-        <div class="input-container">
-            <input type="text" placeholder="Search for a plant..." v-model="searchInput">
-        </div>
+<div class="expand">
+    <div class="APIDynamicSearch">
+        <h2 id="plantStateSearch">{{ user.location }}</h2>
+        <div id="searchAPI">
+            <div class="input-container">
+                <input type="text" placeholder="Search for a plant..." v-model="searchInput">
+            </div>
 
-        <ul id="returnedAPIObjects">
-            <template class="APIObject" v-for="searchResult in filteredResults">
-                <tr>
-                    <td v-text="searchResult.scientificNameAuthor"></td>
-                    <td v-text="searchResult.nationalCommonName"></td>
-                    <td v-text="searchResult.family"></td>
-                    <td>
-                        <button v-on:click="getPlant(searchResult.symbol)" type="button">Add Plant</button>
-                    </td>
-                </tr>
-            </template>
-        </ul>
+            <ul id="returnedAPIObjects">
+                <template class="APIObject" v-for="searchResult in filteredResults">
+                    <tr>
+                        <td v-text="searchResult.scientificNameAuthor"></td>
+                        <td v-text="searchResult.nationalCommonName"></td>
+                        <td v-text="searchResult.family"></td>
+                        <td>
+                            <button v-on:click="getPlant(searchResult.symbol)" type="button">Add Plant</button>
+                        </td>
+                    </tr>
+                </template>
+            </ul>
+        </div>
     </div>
 </div>
 
