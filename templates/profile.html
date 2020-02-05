@@ -13,23 +13,21 @@
 {% if user.is_authenticated %}
 <div class=header id="profileHeader">
     <h1>Yards BioDiversity</h1>
-    <div class="profileImageContainer">
-    </div>
+    <h2 id="userWelcome">Welcome {{ user.username }}</h2>
 </div>
 
-<h2 id="userWelcome">Welcome {{ user.username }}</h2>
 
-
+<!-- container for userplant list title and add custom plant button -->
+<div class="customPlantNavbar">
+    <h3 id="userPlantListTitle">{{ user.username }}'s Plant List</h3>
+    <button type="button" id="customPlantBtn"><i class="fas fa-plus-square"></i></button>
+</div>
 
 <!-- create flex container for chart and userPlant list -->
 <div class="graphListContainer">
 
-    
-
      <!-- userPlant list -->
     <div class="userPlantListDisplay">
-        <h3 id="userPlantListTitle">Your Plant List</h3>
-        <button type="button" id="customPlantBtn">Add Custom Plant</button>
         <ul>
             {% for plant in userPlants %}   
                 <button class="accordion">{{ plant.scientificNameAuthor }}</button> 
@@ -63,10 +61,10 @@
 
     <!-- chart -->
     <div id="userPlantChart">
-            <div id="plantChartContainer">
+        <div id="plantChartContainer">
             <canvas id="plantChart" width="600" height="600"></canvas>
-            </div>
-        </div>  
+        </div>
+    </div>  
 </div>
 
 

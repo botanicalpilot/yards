@@ -9,10 +9,11 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/site.css' %}" type="text/css" media="screen">
     <link rel="shortcut icon" href="#" />
-    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker|Playfair+Display|Roboto&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker|Playfair+Display|Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css"> 
 </head>
 <body>
-    <ul>
+    <ul class="navbarUl">
         <li class=navbarLink><a href="">Home</a></li>
         {% load static %}
         {% if user.is_authenticated %}
