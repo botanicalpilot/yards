@@ -75,11 +75,11 @@
         <h2 id="plantStateSearch">{{ user.location }}</h2>
         <div id="searchAPI">
             <div class="input-container">
-                <input type="text" placeholder="Search for a plant..." v-model="searchInput">
+                <input id="inputSearchBox" type="text" placeholder="Search for a plant..." v-model="searchInput">
             </div>
 
             <ul id="returnedAPIObjects">
-                <table>
+                <table id="APIObjectsTable">
                     <tr>
                             <th scope="col">Scientific Name & Author</th>
                             <th scope="col">Common Name</th>

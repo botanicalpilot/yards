@@ -292,10 +292,46 @@ canvas{
     visibility: hidden;
 }
 
+/* style API search input */
+.input-container{
+    width: 50%;
+    justify-content: center;
+    position: relative;
+    display: flex;
+}
+
+#inputSearchBox{
+  width: 100%;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px 5px 5px 5px;
+  outline: none;
+
+  
+}
+
+
 /* table styling */
+#tableWrapper {
+    position: relative;
+}
+
+#returnedAPIObjects{
+    height: 300px;
+    overflow-y: auto;
+    margin-top: 20px;
+}
+
+#APIObjectsTable{
+    width: 100%;
+}
+
 th {
     text-align: left;
 }
+
+
+
 
 
 
