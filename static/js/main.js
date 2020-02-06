@@ -65,6 +65,12 @@ closeButton.addEventListener("click", toggleModal);
 window.addEventListener("click", WindowOnClick);
 
 
+
+
+
+
+
+
 // build an accordion
 var acc = document.getElementsByClassName("accordion");
 var i;
@@ -84,6 +90,24 @@ for (i = 0; i < acc.length; i++) {
     }
   });
 } 
+
+
+
+
+
+// freeze table headers
+let header = document.getElementById("absoluteTableHeaders");
+let freezeTableHeader = header.offsetTop;
+
+function freezeFunction() {
+  if (window.pageYOffset > freezeTableHeader) {
+    header.classList.add(freezeTableHeader);
+  } else {
+    header.classList.remove(freezeTableHeader)
+  }
+}
+
+window.onscroll = function() {freezeFunction()};
 
 
 

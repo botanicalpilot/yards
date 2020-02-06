@@ -13,24 +13,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css"> 
 </head>
 <body>
-    <ul class="navbarUl">
-        <li class=navbarLink><a href="">Home</a></li>
-        {% load static %}
-        {% if user.is_authenticated %}
-            <li class=navbarLink><a href="{% url 'logout' %}">logout</a></li>
-        {% else %}
-            <li class=navbarLink><a href="{% url 'login' %}">login</a></li>
-            <li class=navbarLink><a href="{% url 'signup' %}">sign up</a></li>
-        {% endif %}
-    </ul>
-
+    
     {% block content %}
     {% endblock %}
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="{% static 'js/main.js' %}"></script>
    
-    
-
-
 </body>
 </html>

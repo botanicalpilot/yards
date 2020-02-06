@@ -3,13 +3,27 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
+<div id="navbarContainer">
+    <ul class="navbarUl">
+        <li class=navbarLink><a href="http://127.0.0.1:8000/">Home</a></li>
+        {% load static %}
+        {% if user.is_authenticated %}
+            <li class=navbarLink><a href="{% url 'profile' %}">Profile</a></li>
+            <li class=navbarLink><a href="{% url 'logout' %}">Logout</a></li>
+        {% else %}
+            <li class=navbarLink><a href="{% url 'login' %}">login</a></li>
+            <li class=navbarLink><a href="{% url 'signup' %}">sign up</a></li>
+        {% endif %}
+    </ul>
+</div>
+
+
 <!-- displays greeting to new or returning user -->
 <div class="section" id="homePageTitle">
   {% load static %}
   {% if user.is_authenticated %}
     <h1 class="welcomeTitles">Yards Biodiversity</h1> 
     <h2 class="welcomeTitles">welcome {{ user.username }}</h2>
-    <button id="buttonToProfile"><a href="{% url 'profile' %}">go to my profile</a></button>
   {% else %}
     <h1 class="welcomeTitles">Yards Biodiversity</h1>
   {% endif %}

@@ -12,16 +12,31 @@
 <!-- make sure users are logged in to see site -->
 {% if user.is_authenticated %}
 <div class=header id="profileHeader">
-    <h1>Yards BioDiversity</h1>
-    <h2 id="userWelcome">Welcome {{ user.username }}</h2>
-</div>
+    <div id="navbarContainer">
+        <ul class="navbarUl">
+            <li class=navbarLink><a href="http://127.0.0.1:8000/">Home</a></li>
+            <!-- navbar -->
+            <li class=navbarLink><a href="{% url 'profile' %}">Profile</a></li>
+            <li class=navbarLink><a href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- page title -->
+    <div class="titleWrapper">
+        <h1 class="profileTitles" >Yards BioDiversity</h1>
+        <h2 class="profileTitles" id="userWelcome">Welcome {{ user.username }}</h2>
+    </div>
 
 
-<!-- container for userplant list title and add custom plant button -->
-<div class="customPlantNavbar">
-    <h3 id="userPlantListTitle">{{ user.username }}'s Plant List</h3>
-    <button type="button" id="customPlantBtn"><i class="fas fa-plus-square"></i></button>
+    <!-- container for userplant list title and add custom plant button -->
+    <div class="customPlantNavbar">
+        <div class="plantNavbarContents">
+            <h3 id="userPlantListTitle">{{ user.username }}'s Plant List</h3>
+            <button type="button" id="customPlantBtn"><i id="modalAwesome" class="fas fa-plus-square fa-lg"></i></button>
+        </div>
+    </div>
 </div>
+
 
 <!-- create flex container for chart and userPlant list -->
 <div class="graphListContainer">
@@ -78,26 +93,30 @@
                 <input id="inputSearchBox" type="text" placeholder="Search for a plant..." v-model="searchInput">
             </div>
 
-            <ul id="returnedAPIObjects">
-                <table id="APIObjectsTable">
-                    <tr>
-                            <th scope="col">Scientific Name & Author</th>
-                            <th scope="col">Common Name</th>
-                            <th scope="col">Plant Family</th>
-                            <th scope="col">Add to your plant list</th>
-                    </tr>
-                <template class="APIObject" v-for="searchResult in filteredResults">
-                    <tr>
-                        <td v-text="searchResult.scientificNameAuthor"></td>
-                        <td v-text="searchResult.nationalCommonName"></td>
-                        <td v-text="searchResult.family"></td>
-                        <td>
-                            <button v-on:click="getPlant(searchResult.symbol)" type="button">Add Plant</button>
-                        </td>
-                    </tr>
-                </template>
-            </table>
-            </ul>
+            <div id="tableWrapper">
+                <ul id="returnedAPIObjects">
+                    <table id="APIObjectsTable">
+                        <div id="absoluteTableHeaders">
+                        <tr>
+                                <th scope="col" >Scientific Name & Author</th>
+                                <th scope="col">Common Name</th>
+                                <th scope="col">Plant Family</th>
+                                <th scope="col">Add to your plant list</th>
+                        </tr>
+                    </div>
+                    <template class="APIObject" v-for="searchResult in filteredResults">
+                        <tr>
+                            <td v-text="searchResult.scientificNameAuthor"></td>
+                            <td v-text="searchResult.nationalCommonName"></td>
+                            <td v-text="searchResult.family"></td>
+                            <td>
+                                <button v-on:click="getPlant(searchResult.symbol)" type="button">Add Plant</button>
+                            </td>
+                        </tr>
+                    </template>
+                </table>
+                </ul>
+            </div>
         </div>
     </div>
 </div>
