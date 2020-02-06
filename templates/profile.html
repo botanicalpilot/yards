@@ -27,22 +27,19 @@
         <h2 class="profileTitles" id="userWelcome">Welcome {{ user.username }}</h2>
     </div>
 
-
-    <!-- container for userplant list title and add custom plant button -->
-    <div class="customPlantNavbar">
-        <div class="plantNavbarContents">
-            <h3 id="userPlantListTitle">{{ user.username }}'s Plant List</h3>
-            <button type="button" id="customPlantBtn"><i id="modalAwesome" class="fas fa-plus-square fa-lg"></i></button>
-        </div>
-    </div>
 </div>
 
 
 <!-- create flex container for chart and userPlant list -->
-<div class="graphListContainer">
 
+<div class="graphListContainer">
+        
      <!-- userPlant list -->
     <div class="userPlantListDisplay">
+            <h2>{{ user.username }}'s Botanical Biome
+                    <button type="button" id="customPlantBtn"><i id="modalAwesome" class="fas fa-plus-square fa-lg"></i></button>
+            </h2>
+            
         <ul>
             {% for plant in userPlants %}   
                 <button class="accordion">{{ plant.scientificNameAuthor }}</button> 
@@ -90,7 +87,7 @@
         <h2 id="plantStateSearch">{{ user.location }}</h2>
         <div id="searchAPI">
             <div class="input-container">
-                <input id="inputSearchBox" type="text" placeholder="Search for a plant..." v-model="searchInput">
+                <input id="inputSearchBox" type="text" placeholder="Search for a plant by scientific name..." v-model="searchInput">
             </div>
 
             <div id="tableWrapper">
