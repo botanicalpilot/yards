@@ -19,6 +19,7 @@ class userPlant(models.Model):
     family = models.CharField(max_length=250, blank=True, default='')
     nativeState = models.CharField(blank=False, max_length=100, default='')
     isInvasive = models.CharField(max_length=20, blank=True, default='')
+    
 
     def __str__(self):
         return self.scientificNameAuthor
