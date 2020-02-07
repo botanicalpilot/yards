@@ -15,13 +15,14 @@ axios.get(endpoint)
     let invasive = 0;
     let noninvasive = 0;
     let nonnative = 0;
+    
     for( i=0; i< plantListData.userPlants.length; i++) {
       if (plantListData.userPlants[i]['isInvasive'] == "TRUE") {
-        invasive += 1
+        invasive += plantListData.userPlants[i].numberOfPlant
       } else if (plantListData.userPlants[i]['isInvasive'] == "FALSE") {
-        noninvasive += 1
+        noninvasive += plantListData.userPlants[i].numberOfPlant
       } else {
-        nonnative += 1
+        nonnative += plantListData.userPlants[i].numberOfPlant
       }
     }
     console.log(noninvasive)
@@ -46,6 +47,8 @@ axios.get(endpoint)
   })
 
 
+
+// accordion modal
 let modal = document.querySelector(".modal");
 let openButton = document.getElementById("customPlantBtn");
 let closeButton = document.querySelector(".close-button");
