@@ -49,8 +49,25 @@
                     <p>Common Name: {{plant.nationalCommonName}}</p>
                     <p>Native State: {{plant.nativeState}}</p>
                     <p>Invasive Status: {{plant.isInvasive}}</p>
+                    <div>
+                        <p>Number of Plants: {{plant.numberOfPlant}}</p>
+
+                        <form action="{% url 'yardsApp:editUserPlant' plant.id %}" method="POST">
+                            {% csrf_token %}
+                            <input type="number" name="numberOfPlant" placeholder="{{ plant.numberOfPlant }}">
+                            <input type="submit" name="submit" value="Submit">
+                        </form>
+
+
+                        <button>
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        
+                    </div>
+                    
 
                     <button onclick="location.href='http://127.0.0.1:8000/{{ plant.id }}/delete'">Delete</button>
+
                 </div><br>
             {% endfor %}
         </ul>
@@ -67,6 +84,7 @@
                 <input type="text" placeholder="Common Name" name="nationalCommonName">
                 <input type="text" placeholder="Plant Family" name="family">
                 <input type="text" placeholder="Native Region" name="nativeState">
+                <input type="number" placeholder="Number of Plants (min 1)" name="numberOfPlant">
                 <input type="submit" name="submit" value="Submit">
             </form>
         </div>

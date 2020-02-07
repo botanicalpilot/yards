@@ -23,6 +23,18 @@ def deleteUserPlant(request, userPlantId):
     plantId.delete()
     return redirect('http://127.0.0.1:8000/profile')
 
+def editUserPlant(request, userPlantId):
+    plantId = get_object_or_404(userPlant, id=userPlantId)
+
+    numberOfPlant = request.POST['numberOfPlant']
+
+    updatePlant = userPlant.objects.filter(pk=userPlantId)
+    updatePlant.update(numberOfPlant=numberOfPlant)
+    
+    return redirect('http://127.0.0.1:8000/profile')
+
+
+
 # view for adding custom userPlant
 def customUserPlant(request):
     user = request.user
@@ -32,8 +44,9 @@ def customUserPlant(request):
     family = request.POST.get('family') 
     nativeState = request.POST.get('nativeState')
     isInvasive = 'UNKNOWN'
+    numberOfPlant = request.POST.get('numberOfPlant')
 
-    userPlant.objects.create(user=user, scientificNameAuthor=scientificNameAuthor, nationalCommonName=nationalCommonName, family=family, nativeState=nativeState, isInvasive=isInvasive)
+    userPlant.objects.create(user=user, scientificNameAuthor=scientificNameAuthor, nationalCommonName=nationalCommonName, family=family, nativeState=nativeState, isInvasive=isInvasive, numberOfPlant=numberOfPlant)
 
     return redirect('http://127.0.0.1:8000/profile')
 
@@ -47,6 +60,7 @@ def newUserPlant(request):
     family = request.POST.get('family') 
     nativeState = request.POST.get('nativeState')
     isInvasive = request.POST.get('isInvasive') 
+    
 
     
 

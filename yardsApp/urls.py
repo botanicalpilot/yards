@@ -11,5 +11,6 @@ urlpatterns = [
     path('profile/', views.profile, name='profile'),
     path('data/', views.chartData, name='chartData'),
     path('<int:userPlantId>/delete', views.deleteUserPlant, name='deleteUserPlant'),
+    path('profile/editUserPlant/<int:userPlantId>', views.editUserPlant, name='editUserPlant'),
     path('profile/customUserPlant', views.customUserPlant, name='customUserPlant'),
 ]
