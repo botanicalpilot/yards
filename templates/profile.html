@@ -36,9 +36,11 @@
         
      <!-- userPlant list -->
     <div class="userPlantListDisplay">
-            <h2>{{ user.username }}'s Botanical Biome
-                    <button type="button" id="customPlantBtn"><i id="modalAwesome" class="fas fa-plus-square fa-lg"></i></button>
+            <h2 id="botanicalBiome" >{{ user.username }}'s Botanical Biome   
             </h2>
+            
+                    
+            
             
         <ul>
             {% for plant in userPlants %}   
@@ -56,7 +58,7 @@
     <!-- customUserPlantForm -->
     <div id="customUserPlantModal" class="modal">
         <div class="modal-content">
-            <span class="close-button">x</span>
+            <span class="close-button"><i class="fas fa-window-close fa-lg"></i></span>
             <form action="{% url 'yardsApp:customUserPlant' %}" method="POST"> 
                 {% csrf_token %}
 
@@ -84,10 +86,16 @@
 <!-- new content with vue -->
 <div class="expand">
     <div class="APIDynamicSearch">
-        <h2 id="plantStateSearch">{{ user.location }}</h2>
+        <h2 id="plantStateSearch">{{ user.location }}
+        <h1 id="addPlantTitle">Add plants to your biome</h1>
+        </h2>
+        <h2 id="searchTitleDetails">Search for plants in {{ user.location }}  or add a species outside of {{ user.location }}</h2>
         <div id="searchAPI">
             <div class="input-container">
                 <input id="inputSearchBox" type="text" placeholder="Search for a plant by scientific name..." v-model="searchInput">
+                <button type="button" id="customPlantBtn">
+                    <i id="modalAwesome" class="fas fa-plus-square fa-lg"></i>
+                </button>
             </div>
 
             <div id="tableWrapper">

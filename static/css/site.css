@@ -1,3 +1,12 @@
+*{border: 1px solid rgba(255, 0, 0, 0)}
+
+html, body{
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    position: static;
+    }
+
 /* navbar styling in base.html */
 ul {
     list-style-type: none;
@@ -68,7 +77,7 @@ li a:hover {
     font-size: 3rem;
     color: white;
     text-shadow: black 0px 0px 10px;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Permanent Marker', cursive;
 }
 
 
@@ -82,15 +91,16 @@ li a:hover {
 #homePageAbout {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    margin: 70px;
-    align-items: center;
+    justify-content: space-around;
+    margin: 15px;
+    align-items: baseline;
 }
 
 #homePageItem {
     flex: 1 0 25%;
     color: white;
     text-shadow: black 0px 0px 10px;
+    text-align: center;
     
 }
 
@@ -101,7 +111,7 @@ li a:hover {
 
 #homePageItem p {
     font-size: 1.25rem;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 
@@ -170,23 +180,6 @@ li a:hover {
 }
 
 /* flex container for title and customUserPlant button */
-.customPlantNavbar{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-end;
-    align-content: flex-end;
-    font-family: 'Playfair Display', serif;
-    width: 100%;
-
-}
-
-.plantNavbarContents h3{
-    color: white;
-}
-
-
-
 #customPlantBtn{
     background-color: transparent; /* Blue background */
     border: none; /* Remove borders */
@@ -216,6 +209,10 @@ li a:hover {
     overflow: hidden;
 }
 
+#botanicalBiome{
+   font-family: 'Permanent Marker', cursive;
+}
+
 .plantChartContainer{
     flex: 1;
     min-width: 0;
@@ -225,6 +222,9 @@ li a:hover {
     flex: 1;
     overflow-y: auto;
     min-height: 0px;
+    text-align: center;
+    justify-content: center;
+
 }
 canvas{
     width: 100% !important;
@@ -273,19 +273,17 @@ canvas{
     line-height: 1.5rem;
     text-align: center;
     cursor: pointer;
-    border-radius: 0.25rem;
-    background-color: lightgray;
+    border: none;
+    background-color: white;
 }
   
-.close-button:hover {
-    background-color: darkgray;
-}
 
 .show-modal {
     opacity: 1;
     visibility: visible;
     transform: scale(1.0);
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+    z-index: 1;
 }
 
  /* Style the buttons that are used to open and close the accordion panel */
@@ -295,7 +293,7 @@ canvas{
     cursor: pointer;
     padding: 18px;
     width: 100%;
-    text-align: left;
+    text-align: center;
     border: none;
     outline: none;
     transition: 0.4s;
@@ -310,15 +308,27 @@ canvas{
   /* Style the accordion panel. Note: hidden by default */
   .panel {
     padding: 0 18px;
-    background-color: white;
+    background-color: #F9ECEC;
     display: none;
     overflow: hidden;
-    border-left: #027368;
+    border-left: #FFDAD6;
+    font-family: 'Roboto', sans-serif;
+
   } 
 
 /* hide user location used to return info form the API */
 #plantStateSearch {
     visibility: hidden;
+}
+
+#searchTitleDetails{
+    font-family: 'Roboto', sans-serif;
+}
+
+
+
+#addPlantTitle {
+    font-family: 'Permanent Marker', cursive;
 }
 
 /* style API search input */
@@ -335,6 +345,7 @@ canvas{
   height: 20px;
   border-radius: 5px 5px 5px 5px;
   outline: none;
+  
 
   
 }
@@ -397,13 +408,153 @@ th {
         height: 100%;
     }
 }
+
+/* mobile responsiveness */
 @media(max-width: 767px) {
+
+
+    /* home page video background */
     #videoBG {
         display: none;
     }
-    body {
-        background: url('../media/backgroundStill.png');
+    
+    #homeWrapper{
         background-size: cover;
+        background-repeat: no-repeat;
+        background-image: url("../media/homeBackground.jpg");
+        margin: none;
     }
+
+
+    /* home pages welcome titles */
+    .section {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        overflow: hidden;
+        padding: 25px;
+        
+    }
+    
+    .section .welcomeTitles {
+        line-height: 2px;
+        color: black;
+        
+    }
+    
+    #homePageTitle h1{
+        text-align: center;
+        font-size: 2.15rem;
+        color: white;
+        text-shadow: black 0px 0px 10px;
+        font-family: 'Permanent Marker', cursive;
+        word-break: break-all;
+        white-space: normal;
+    }
+    
+    #homePageTitle h2{
+        text-align: center;
+        font-size: 1.5rem;
+        color: white;
+        text-shadow: black 0px 0px 10px;
+        font-family: 'Roboto', sans-serif;
+    }
+
+
+    /* flex container home page giving general information about the app */
+    #homePageAbout {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 70px;
+        align-items: center;
+    }
+
+    #homePageItem {
+        flex: 1 0 25%;
+        color: white;
+        text-shadow: black 0px 0px 10px;
+        
+    }
+
+    #homePageItem h1 {
+        text-align: center;
+        font-family: 'Permanent Marker', cursive;
+    }
+
+    #homePageItem p {
+        font-size: 1.25rem;
+        font-family: 'Roboto', sans-serif;
+    }
+
+
+
+
+
+
+
+    /* profile styling */
+
+    /* container for title and customUserPlant button */
+    
+
+    #customPlantBtn{
+        background-color: transparent; /* Blue background */
+        border: none; /* Remove borders */
+        font-size: 16px; /* Set a font size */
+        color: black;
+    }
+
+    #modalAwesome {
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer; 
+        border: none;
+    }
+
+    /* flex container for graph and userPlant list */
+    .graphListContainer{
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        justify-content: center;
+        align-items: stretch;
+        overflow: hidden;
+    }
+
+    .plantChartContainer{
+        flex: 1;
+        min-width: 0;
+    }
+
+    .userPlantListDisplay{
+        flex: 1;
+        overflow-y: auto;
+        min-height: 0px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    canvas{
+        width: 100% !important;
+        max-width: 800px;
+        height: auto !important;
+    }
+
+
+    /* search box styling */
+    .input-container{
+        width: 100%;
+        justify-content: center;
+        position: relative;
+        display: flex;
+    }
+
+
    
 }

@@ -3,6 +3,7 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
+<div id="homeWrapper">
 <div id="navbarContainer">
     <ul class="navbarUl">
         <li class=navbarLink><a href="http://127.0.0.1:8000/">Home</a></li>
@@ -33,17 +34,18 @@
 <div class="container homePageAbout" id="homePageAbout">
   <div id="homePageItem">
       <h1>Mission</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla animi harum alias libero nostrum qui, quaerat blanditiis dolores porro asperiores. Iure aspernatur vel consequuntur enim, eum nesciunt! Doloremque, tenetur quod?</p>
+      <p>Our goal is to give individuals the ability to asses their the biodiversity in their immediate vicinity.</p>
+      <p>Add plants you own and those that are planted in your area to glimpse the ratio of native, nonnative,and invasive plants. </p>
   </div>
 
   <div id="homePageItem">
       <h1>About</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora fuga asperiores voluptas inventore autem. Suscipit aliquam voluptatem molestias eius? Inventore corrupti iure rerum nesciunt iusto vero quo nisi! Iusto, obcaecati.</p>
+      <p>Our data was taken from the USDA. We want encourage everyone to plant native species and be a steward of the environment around them.  </p>
   </div>
 
   <div id="homePageItem">
       <h1>Contact</h1>
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat soluta, officiis laborum reprehenderit voluptatibus quos dicta minus? Sit laudantium nihil nobis autem voluptatum, asperiores odit ut temporibus debitis vel deleniti.</p>
+      <p>Find me on Instagram or Email</p>
   </div>
 
 </div>
@@ -54,6 +56,7 @@
   <video id="videoBG" poster="{% static 'media/backgroundStill1.png' %}" autoplay muted loop>
     <source src="{% static 'media/altBackground.mp4' %}" type="video/mp4">
   </video>
+</div>
 </div>
 
 
