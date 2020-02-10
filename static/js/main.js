@@ -67,7 +67,7 @@ openButton.addEventListener("click", toggleModal);
 closeButton.addEventListener("click", toggleModal);
 window.addEventListener("click", WindowOnClick);
 
-
+// show and hide
 
 
 
