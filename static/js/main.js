@@ -39,6 +39,20 @@ axios.get(endpoint)
         backgroundColor:['RGB(2, 115, 104)','RGB(242, 81, 22)', 'RGB(4, 138, 191)',]
        }]
      },
+     options: {
+       legend: {
+         display: true,
+         position: 'bottom',
+       },
+       layout: {
+         padding: {
+           left: 0, 
+           right: 0,
+           top: 25, 
+           bottom: 0,
+         },
+       }
+     }
     })
     
   })

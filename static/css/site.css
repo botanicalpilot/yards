@@ -211,6 +211,7 @@ li a:hover {
 
 #botanicalBiome{
    font-family: 'Permanent Marker', cursive;
+   font-size: 2rem;
 }
 
 .plantChartContainer{
@@ -294,6 +295,7 @@ canvas{
     padding: 18px;
     width: 100%;
     text-align: center;
+    font-size: 1.25rem;
     border: none;
     outline: none;
     transition: 0.4s;
@@ -329,6 +331,7 @@ canvas{
 
 #addPlantTitle {
     font-family: 'Permanent Marker', cursive;
+    font-size: 2rem;
 }
 
 /* style API search input */
@@ -554,6 +557,14 @@ th {
         position: relative;
         display: flex;
     }
+
+    #returnedAPIObjects{
+        height: 300px;
+        overflow-y: auto;
+        overflow-x: auto; 
+        margin-top: 20px;
+    }
+    
 
 
    

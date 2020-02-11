@@ -51,14 +51,9 @@
 
                         <form action="{% url 'yardsApp:editUserPlant' plant.id %}" method="POST">
                             {% csrf_token %}
-                            <input type="number" name="numberOfPlant" placeholder="{{ plant.numberOfPlant }}">
+                            <input type="number" name="numberOfPlant" placeholder="Update Number of Plant">
                             <input type="submit" name="submit" value="Submit">
                         </form>
-
-
-                        <button>
-                            <i class="fas fa-edit"></i>
-                        </button>
                         
                     </div>
                     
