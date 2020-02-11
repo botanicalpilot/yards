@@ -61,6 +61,11 @@
                     <button onclick="location.href='http://127.0.0.1:8000/{{ plant.id }}/delete'">Delete</button>
 
                 </div><br>
+            {% empty %}
+            <div class="userPlantListDisplayNo">
+                <h3 id="botanicalBiomeNoPlant" >Please add plants from below to start your biome.   
+                </h3>
+            </div>
             {% endfor %}
         </ul>
     
