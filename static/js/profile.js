@@ -30,6 +30,7 @@ const appSearch = new Vue({
         getPlant : function(symbol) {
             let csrftoken = Cookies.get('csrftoken');
             let headers = {'X-CSRFTOKEN': csrftoken};
+            let state = document.getElementById('plantStateSearch').innerHTML;
             axios.get('http://127.0.0.1:5000/APIApp/?symbol__iexact=' + symbol)
             .then(response => {
                 plantInfo = response.data[0];
@@ -37,7 +38,7 @@ const appSearch = new Vue({
                 postData.append('scientificNameAuthor', plantInfo.scientificNameAuthor)
                 postData.append('nationalCommonName', plantInfo.nationalCommonName)
                 postData.append('family', plantInfo.family)
-                postData.append('nativeState', plantInfo.nativeState)
+                postData.append('nativeState', state)
                 postData.append('isInvasive', plantInfo.isInvasive)
 
                 console.log(postData);
